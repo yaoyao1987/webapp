@@ -1,0 +1,109 @@
+html {
+    height: 100%;
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    overflow-y: scroll;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font: 12px/1.5 Helvetica, Arial, "Microsoft Yahei", "Helvetica Neue", sans-serif;
+    color: #444;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 40px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 10px 0;
+    font-family: inherit;
+    line-height: 20px;
+    font-weight: 700;
+    color: inherit;
+    text-rendering: optimizelegibility;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+p {
+    margin: 0;
+}
+
+label {
+    display: block;
+    margin: 0 15px;
+    margin-bottom: 5px;
+}
+
+form {
+    margin: 0 0 20px;
+}
+
+
+/*清除浮动*/
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: "";
+}
+
+.clearfix:after {
+    visibility: hidden;
+    clear: both;
+    overflow: hidden;
+    height: 0;
+}
+
+.clearfix {
+    zoom: 1;
+    /*for ie6&ie7*/
+}
+
+.clear {
+    display: block;
+    clear: both;
+    overflow: hidden;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+}
+
+.hide {
+    display: none;
+}
+
+
+/*设置浮动，减少浮动带来的bug*/
+
+.left,
+.right {
+    display: inline;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}

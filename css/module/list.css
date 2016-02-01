@@ -1,0 +1,59 @@
+/*------------------------------------------------------------------
+[Table of contents]
+公告列表
+-------------------------------------------------------------------*/
+
+
+/* 列表
+-------------------------------------------------------------------*/
+.item-list {
+    display:flex;
+    flex-direction: column;
+}
+.item-list li a{
+    display: flex;
+    flex: 1;
+    width: 100%;
+    padding: .05rem 0;
+    color: #888;
+    box-sizing: border-box;
+}
+.item-list .lazy {
+    order: -1;
+    width: 1rem;
+    height: 1rem;
+    background: #fff;
+    overflow: hidden;
+}
+.item-info {
+    flex: 1;
+    margin-left: .2rem;
+}
+.item-info-top {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    white-space: nowrap;
+    font-size: .24rem;
+}
+.item-info-top .type {
+}
+.item-info-top .title {
+    display: inline-block;
+    flex: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.item-info-bottom {
+    width: 100%;
+    margin-top: .05rem;
+    font-size: .14rem;
+}
+.item-del {
+    display: flex;
+    justify-content: center;
+    box-align: center;
+    align-items: center;
+    width: 1rem;
+}

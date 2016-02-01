@@ -1,0 +1,837 @@
+/*------------------------------------------------------------------
+[Table of contents]
+页面基础样式
+字体样式集合
+主页面样式
+滚动
+多选
+弹窗
+下拉框
+blank页面样式
+取色器
+日期图表
+-------------------------------------------------------------------*/
+
+
+/*页面基础样式
+------------------------------------------------*/
+
+.fixed-bottom {
+    display: fixed;
+    bottom: 0;
+}
+
+.tleft {
+    text-align: left;
+}
+
+.tright {
+    text-align: right;
+}
+
+.tcenter {
+    text-align: center;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.h100 {
+    height: 100%;
+}
+
+.h48 {
+    height: .48rem;
+    line-height: .48rem;
+}
+
+.section {
+    clear: both;
+    padding-right: .2rem;
+    padding-left: .2rem;
+}
+
+.top-line {
+    border-top: 1px solid #ddd;
+}
+
+.bottom-line {
+    border-bottom: 1px solid #ddd;
+}
+
+.mt20 {
+    margin-top: .2rem;
+}
+
+.mt30 {
+    margin-top: .3rem;
+}
+
+.mr10 {
+    margin-right: .1rem;
+}
+
+.mr20 {
+    margin-right: .2rem;
+}
+
+.ml10 {
+    margin-left: .1rem;
+}
+
+.strong {
+    font-weight: 700;
+}
+
+
+/*字体样式集合
+-------------------------------------------------*/
+
+.f10 {
+    font-size: .1rem;
+}
+
+.f12 {
+    font-size: 12px;
+}
+
+.f16 {
+    font-size: 16px;
+}
+
+.f18 {
+    font-size: 18px;
+}
+
+.f20 {
+    font-size: .2rem;
+}
+
+.f32 {
+    font-size: 32px;
+}
+
+
+/*主页面样式
+-------------------------------------------------*/
+
+#loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+}
+
+#container {
+    height: 100%;
+}
+
+
+/* flex样式
+-------------------------------------------------------------------*/
+
+.flex {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.flex-dir-row {
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+}
+
+.flex-dir-column {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+}
+
+.flex-grow-0 {
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+}
+
+.flex-grow-1 {
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+
+/* 滚动
+-------------------------------------------------------------------*/
+.scroller-wrapper {
+    left:0px;
+    position:absolute; z-index:1;
+    top:0px; bottom:0px;
+    width:100%;
+    overflow: hidden;
+}
+.scroller {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    padding: 0;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.scroller ul {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    list-style: none;
+}
+
+.scroller li {
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+    background-color: #fafafa;
+}
+
+.scroller li:last-child {
+    border: none;
+}
+
+.scroller li img {
+    width: .4rem;
+    height: .4rem;
+}
+
+.scroller-pulldown,
+.scroller-pullup {
+    /*display: none;*/
+    height: .4rem;
+    padding: 5px 10px;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+    line-height: .4rem;
+    font-weight: 700;
+    color: #888;
+    background: #fff;
+}
+
+.scroller-pulldown .pulldown-icon,
+.scroller-pullup .pullup-icon {
+    display: block;
+    float: left;
+    width: .4rem;
+    height: .4rem;
+    background: url(pull-icon@2x.png) 0 0 no-repeat;
+    background-size: 40px 80px;
+    -webkit-transition-duration: 250ms;
+    -webkit-transition-property: -webkit-transform;
+}
+
+.scroller-pulldown .pulldown-icon {
+    -webkit-transform: rotate(0deg) translateZ(0);
+    transform: rotate(0deg) translateZ(0);
+}
+
+.scroller-pullup .pullup-icon {
+    -webkit-transform: rotate(-180deg) translateZ(0);
+    transform: rotate(-180deg) translateZ(0);
+}
+
+.scroller-pulldown .flip .pulldown-icon {
+    -webkit-transform: rotate(-180deg) translateZ(0);
+    transform: rotate(-180deg) translateZ(0);
+}
+
+.scroller-pullup .flip .pullup-icon {
+    -webkit-transform: rotate(0deg) translateZ(0);
+    transform: rotate(0deg) translateZ(0);
+}
+
+.scroller-pulldown .loading .pulldown-icon,
+.scroller-pullup .loading .pullup-icon {
+    background-position: 0 100%;
+    transition-duration: 0ms;
+    -webkit-transform: rotate(0deg) translateZ(0);
+    transform: rotate(0deg) translateZ(0);
+    -webkit-animation-name: loading;
+    animation-name: loading;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes loading {
+    from {
+        -webkit-transform: rotate(0deg) translateZ(0);
+        transform: rotate(0deg) translateZ(0);
+    }
+    to {
+        -webkit-transform: rotate(360deg) translateZ(0);
+        transform: rotate(360deg) translateZ(0);
+    }
+}
+
+
+/* 多选
+-------------------------------------------------------------------*/
+
+.answers-checkbox li {
+    position: relative;
+    padding-bottom: 16px;
+    padding-left: 50px;
+    line-height: 22px;
+}
+
+.answers-checkbox li,
+.answers-checkbox li label {
+    cursor: pointer;
+}
+
+.answers-checkbox .options-checkbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.answers-checkbox .options-checkbox .checkbox {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    margin: 0 10px 4px 0;
+    vertical-align: middle;
+    background: url(../img/radio.png) 0 -22px no-repeat;
+}
+
+.answers-checkbox li:hover .checkbox {
+    background: url(../img/radio.png) -22px -22px no-repeat;
+}
+
+.answers-checkbox li.selected .checkbox {
+    background: url(../img/radio.png) -44px -22px no-repeat;
+}
+
+.answers-checkbox li.selected:hover .checkbox {
+    background: url(../img/radio.png) -66px -22px no-repeat;
+}
+
+.answers-checkbox li.selected.right .checkbox {
+    background: url(../img/radio.png) -88px -22px no-repeat;
+}
+
+.answers-checkbox li.selected.wrong .checkbox {
+    background: url(../img/radio.png) -110px -22px no-repeat;
+}
+
+.answers-checkbox .checkbox input {
+    display: none;
+}
+
+.answers-checkbox .label-checkbox {
+    display: inline-block;
+}
+
+
+/* 弹窗
+-------------------------------------------------------------------*/
+
+.dialog-box,
+.picture-box {
+    display: table;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+}
+
+.dialog-box {
+    background-color: rgba(0, 0, 0, 0.50);
+}
+
+.dialog {
+    margin: 0 auto;
+    border: 1px solid #dddddd;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(4, 0, 0, 0.2);
+    *position: relative;
+    *top: -50%;
+    *left: -50%;
+}
+
+.dialog-parent {
+    display: table-cell;
+    vertical-align: middle;
+    *position: absolute;
+    *top: 50%;
+    *left: 50%;
+}
+
+.dialog-header {
+    padding: 0 25px;
+    border-bottom: 1px solid #ddd;
+    line-height: 48px;
+    font-weight: 600;
+    text-align: left;
+    color: #333;
+}
+
+.dialog-header .head-close {
+    display: inline;
+    float: right;
+    width: 20px;
+    height: 20px;
+    margin-top: 14px;
+    margin-right: -2px;
+    background: url(../images/com_icon.png) 0 -278px no-repeat;
+    cursor: pointer;
+}
+
+.dialog-footer {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.dialog-footer .btn {
+    margin: 0 12px;
+}
+
+.simple-dialog {
+    display: inline-block;
+    position: absolute;
+    z-index: 1000;
+    *display: inline;
+    *zoom: 1;
+}
+
+.simple-dialog-inner {
+    padding: 0 15px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    /* Firefox */
+    border-radius: 2px;
+    /* Safari and Chrome */
+}
+
+.simple-dialog-inner .dialog-content {
+    padding: 30px 0;
+}
+
+.simple-dialog-inner .dialog-footer {
+    margin: 0 0 12px 0;
+}
+
+.simple-dialog-inner .dialog-footer .btn {
+    margin: 0 5px;
+}
+
+.simple-dialog-inner .dialog-footer .blue-btn {
+    width: 96px;
+    height: 36px;
+    line-height: 36px;
+}
+
+.simple-dialog-inner .dialog-footer .line-gray-btn {
+    width: 94px;
+    height: 34px;
+    line-height: 34px;
+}
+
+.simple-dialog-arrow {
+    position: absolute;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -6px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent;
+    line-height: 0;
+}
+
+.simple-dialog .simple-dialog-arrow.in {
+    top: -9px;
+    z-index: 2;
+    border-bottom-color: #fff;
+}
+
+.simple-dialog .simple-dialog-arrow.out {
+    top: -10px;
+    z-index: 1;
+    border-bottom-color: #ddd;
+}
+
+.confirm-dialog-box,
+.toast-dialog-box {
+    display: table;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+}
+
+.confirm-dialog-box .confirm-dialog,
+.toast-dialog-box .toast-dialog {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.confirm-dialog-box .confirm-dialog-inner {
+    display: inline-block;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    *display: inline;
+    *zoom: 1;
+}
+
+.toast-dialog-box .toast-dialog-inner {
+    display: inline-block;
+    width: 220px;
+    height: 90px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.confirm-dialog .dialog-content {
+    padding: 10px 0;
+    line-height: 10px;
+    text-align: center;
+}
+
+.toast-dialog .toast-content-box {
+    display: table;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.toast-dialog .dialog-content {
+    display: table-cell;
+    padding: 10px 0;
+    line-height: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.toast-dialog .dialog-content .status_icon {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.dialog-box.simple .dialog {
+    border: 0px;
+}
+
+.dialog-box.simple .dialog-header {
+    padding: 0 20px;
+    line-height: 54px;
+    color: #646464;
+}
+
+.dialog-box.simple .dialog-header .head-close {
+    width: 12px;
+    height: 12px;
+    margin-top: 21px;
+    background: url(../images/com_icon.png) -3px -1196px;
+}
+
+.dialog-box.simple .dialog-footer {
+    margin-top: 33px;
+    padding-bottom: 33px;
+}
+
+.dialog-box.simple .dialog-footer .btn {
+    margin: 0 5px;
+    font-size: 14px;
+}
+
+.dialog-box.simple .dialog-footer .btn.primary-btn {
+    width: 96px;
+    height: 36px;
+    line-height: 36px;
+}
+
+.dialog-box.simple .dialog-footer .btn.cancel-btn {
+    width: 94px;
+    height: 34px;
+    line-height: 34px;
+}
+
+
+/* 下拉框
+-------------------------------------------------------------------*/
+
+.dropdownBox {
+    display: inline-block;
+    position: relative;
+    width: 136px;
+    height: 30px;
+    *display: inline;
+    *zoom: 1;
+    *height: 32px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.dropdown-menu .dropdown-switch {
+    position: relative;
+    width: 136px;
+    height: 30px;
+    border-color: #ddd;
+    line-height: 30px;
+    text-align: left;
+    color: #666;
+}
+
+.dropdown-menu .dropdown-switch > span {
+    margin-left: 10px;
+}
+
+.dropdown-menu .dropdown-switch i {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    width: 12px;
+    height: 9px;
+    margin-top: -3px;
+    background: black;
+    *width: 13px;
+}
+
+.dropdown-menu .dropdown-list {
+    display: none;
+    overflow-y: auto;
+    min-width: 106px;
+    max-height: 120px;
+    border: 1px solid #ddd;
+    background: #fff;
+    *width: 100%;
+}
+
+.dropdown-menu .dropdown-list a {
+    display: block;
+    padding: 5px 10px;
+    color: #666;
+}
+
+.dropdown-menu .dropdown-list a:hover,
+.dropdown-menu .dropdown-list a.select {
+    background: #f7f7f7;
+}
+
+.dropdown-menu.dropdown-open .dropdown-switch i {
+    margin-top: -8px;
+    border-color: transparent;
+    border-bottom-color: #c6c6c6;
+}
+
+.dropdown-menu.dropdown-open .dropdown-list {
+    display: block;
+}
+
+
+/* blank页面样式
+-------------------------------------------------------------------*/
+
+.blank {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.blank-img {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    width: 2rem;
+    height: 2rem;
+    margin-left: -1rem;
+}
+
+.blank-desc {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    width: 2rem;
+    margin-left: -1rem;
+    text-align: center;
+}
+
+
+/*取色器
+---------------------------------------------*/
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: "";
+}
+
+.clearfix:after {
+    visibility: hidden;
+    clear: both;
+    overflow: hidden;
+    height: 0;
+}
+
+.clearfix {
+    zoom: 1;
+    /*for ie6&ie7*/
+}
+
+.color-picker-panel {
+    display: inline-block;
+    position: relative;
+}
+
+.color-picker-panel,
+.color-picker-panel .color-table {
+    width: 4rem;
+}
+
+.color-picker-panel .color-picker-show {
+    display: inline-block;
+    width: 4rem;
+    height: .4rem;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+.color-table {
+    /*    border: 1px solid #ddd;*/
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: #fff;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.color-table .color-picker-swatch {
+    width: .8rem;
+    height: .8rem;
+    margin: 1px;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.color-picker-panel .fixed-table {
+    position: absolute;
+    top: .2rem;
+    left: 0;
+    z-index: 100;
+}
+
+
+/*页面基础样式
+------------------------------------------------*/
+
+.section {
+    clear: both;
+    padding-right: .2rem;
+    padding-left: .2rem;
+}
+
+.h48 {
+    height: .48rem;
+    line-height: .48rem;
+}
+
+.top-line {
+    border-top: 1px solid #ddd;
+}
+
+.bottom-line {
+    border-bottom: 1px solid #ddd;
+}
+
+.line-mt20 {
+    margin-top: .2rem;
+}
+
+.line-mt30 {
+    margin-top: .3rem;
+}
+
+.mr10 {
+    margin-right: .1rem;
+}
+
+.mt20 {
+    margin-top: .2rem;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.fixed-bottom {
+    display: fixed;
+    bottom: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+/*字体样式集合
+-------------------------------------------------*/
+
+.f10 {
+    font-size: .1rem;
+}
+
+.f20 {
+    font-size: .2rem;
+}
+
+.f40 {
+    font-size: .4rem;
+}
+
+
+/* 日期图表
+----------------------------------------------------*/
+
+.date-util .show-title,
+.date-util .days-rows {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    border-left: 1px solid #ddd;
+    flex-wrap: wrap;
+}
+
+.date-util .show-title li {
+    border-top: 1px solid #ddd;
+}
+
+.date-util .show-title li,
+.date-util .days-rows li {
+    display: inline-block;
+    flex: 1;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    font-size: .8125em;
+    line-height: 3.31em;
+    font-weight: 400;
+    text-align: center;
+}
