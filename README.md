@@ -1,10 +1,10 @@
 #  项目指南
 
 ##  工程目录说明
-  -css
-  -html
-  -img
-  -js
+    css
+    html
+    img
+    js
 
 ##  架构
 1.	director.js 路由
