@@ -41,7 +41,7 @@ require(['jquery', 'router', 'common'], function($, router, common) {
 
     window.appView = $('#container'); //用于各个模块控制视图变化
     window.loadingView = $('#loading'); //页面加载loading
-    window.basePath = 'file:///project/js/webapp/';
+    window.basePath = 'file:///Users/yaolingyan/GitHub/webapp/';
 
     router.init(); //开始监控url变化
 });
