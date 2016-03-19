@@ -11,13 +11,14 @@ body {
     margin: 0;
     padding: 0;
     font: 12px/1.5 Helvetica, Arial, "Microsoft Yahei", "Helvetica Neue", sans-serif;
-    color: #444;
+    color: #000;
+    -webkit-tap-highlight-color: transparent;
 }
 
-h1,
-h2,
-h3 {
-    line-height: 40px;
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    /*点击可点击的元素时，覆盖显示的高亮颜色*/
 }
 
 h1,
@@ -26,9 +27,9 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 10px 0;
+    margin: 0;
+    padding: 0;
     font-family: inherit;
-    line-height: 20px;
     font-weight: 700;
     color: inherit;
     text-rendering: optimizelegibility;
@@ -48,14 +49,28 @@ p {
     margin: 0;
 }
 
-label {
-    display: block;
-    margin: 0 15px;
-    margin-bottom: 5px;
-}
-
 form {
     margin: 0 0 20px;
+}
+
+img {
+    border: none;
+}
+
+li {
+    list-style: none;
+}
+
+a,
+input,
+textarea,
+select,
+button {
+    outline: 0;
+}
+
+textarea {
+    resize: none;
 }
 
 
@@ -89,11 +104,10 @@ form {
 }
 
 .hide {
-    display: none;
+     display: none !important;
 }
 
-
-/*设置浮动，减少浮动带来的bug*/
+/*设置浮动，减少浮动带来的bug
 
 .left,
 .right {
