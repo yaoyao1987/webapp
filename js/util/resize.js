@@ -1,11 +1,11 @@
 ﻿//页面自适应
-(function (doc, win) {
+(function(doc, win) {
     var docEl = doc.documentElement,
         resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-        recalc = function () {
+        recalc = function() {
             var clientWidth = docEl.clientWidth;
             if (!clientWidth) return;
-            docEl.style.fontSize = 100 * (clientWidth/640) + 'px';
+            docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
         };
     // Abort if browser does not support addEventListener
     if (!doc.addEventListener) return;
