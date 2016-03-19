@@ -1,4 +1,3 @@
-
 'use strict';
 
 /*
@@ -7,38 +6,42 @@
 
 require.config({
     paths: {
-        jquery:'libs/jquery-2.2.0.min',
+        jquery: 'libs/jquery-2.2.0.min',
         director: 'libs/director',
-        domReady:'libs/require/domReady',
-        text:'libs/require/text',       //用于requirejs导入html类型的依赖
-        css:'libs/require/css',         //用于requirejs导入css类型的依赖
+        domReady: 'libs/require/domReady',
+        text: 'libs/require/text', //用于requirejs导入html类型的依赖
+        css: 'libs/require/css', //用于requirejs导入css类型的依赖
         underscore: 'libs/underscore',
-        fastclick:'libs/fastclick',
-        common:'util/common',
-        router:'router'
+        hammerjs:'libs/hammer',
+        hammer: 'libs/jquery.hammer',
+        IScroll:'libs/iscroll/iscroll',
+        IScrollLoadData: 'util/iscrollRefresh',
+        common: 'util/common',
+        dialog: 'util/modal',
+        router: 'router'
     },
     //引入非AMD写法的类库。
-    shim: {         
+    shim: {
         'director': {
             exports: 'Router'
         },
         'underscore': {
             exports: '_'
         },
-        'dialog':{
-            deps: ['jquery'],
-            exports: 'dialog'
+        'IScroll': {
+            exports: 'IScroll'
+        },
+        'IScrollLoadData': {
+            exports: 'IScrollLoadData'
         }
     }
 });
 
-require(['jquery','router','common','fastclick'], function ($,router,common,fastclick){
-    
-    window.appView = $('#container');      //用于各个模块控制视图变化
-    window.loadingView = $('#loading'); //页面加载loading
-    // window.basePath = 'file:///project/js/webapp/';  //路径
-    // window.basePath = 'http://m.kxlapp.com/IPark2.0/';  //路径
-    router.init();                      //开始监控url变化
+require(['jquery', 'router', 'common'], function($, router, common) {
 
-    // fastclick.attach(document.body);
+    window.appView = $('#container'); //用于各个模块控制视图变化
+    window.loadingView = $('#loading'); //页面加载loading
+    window.basePath = 'file:///project/js/webapp/';
+
+    router.init(); //开始监控url变化
 });
