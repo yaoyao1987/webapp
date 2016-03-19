@@ -27,7 +27,7 @@ define(['jquery', 'underscore', 'domReady', 'common', 'IScrollLoadData',
         //绑定滚动,iscroll上拉加载下拉刷新
         _bindScroll: function() {
             var self = this,
-                wrapper = $('.scroller-wrapper')[0];
+                wrapper = $('.ui-scroller-wrapper')[0];
 
             self.listScroll = IScrollLoadData(wrapper,self._pullDownAction.bind(self),self._pullUpAction.bind(self));
             
