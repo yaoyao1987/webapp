@@ -22,8 +22,8 @@
         this.pulldownAction = pulldownAction; //下拉执行的逻辑
         this.pullupAction = pullupAction; //上拉执行的逻辑
         this.dir = opts ? (opts.dir ? opts.dir : false) : false; //横向还是竖向滚动,1代表横向，0代表竖向
-        this.allowPullDown = opts ? (opts.allowPullDown ? opts.allowPullDown : true) : true; //允许下拉刷新
-        this.allowPullUp = opts ? (opts.allowPullUp ? opts.allowPullUp : true) : true; //允许上拉加载
+        this.allowPullDown = opts ? (opts.hasOwnProperty('allowPullDown') ? opts.allowPullDown : true) : true; //允许下拉刷新
+        this.allowPullUp = opts ? (opts.hasOwnProperty('allowPullUp') ? opts.allowPullUp : true) : true; //允许上拉加载
         this.pullDir = null; //上拉还是下拉
         this.listScroll = null; //iscroll对象
         this.isRefresh = false; //当前是否允许刷新或加载
@@ -69,13 +69,11 @@
                 lastUpdateTime = $(wrapper).attr('data-updatetime'),
                 nowTime = (new Date()).getTime();
 
-            //判断当前是否允许刷新或加载
-            if (isRefresh) {
-                return false;
-            }
-
             //允许下拉刷新
             if (allowPullDown) {
+
+                $wrapper.addClass('ui-list-pulldown');
+
                 //如果下拉的高度大于等于50）并且滑动方向是向下的,设置为可以下拉刷新
                 if (listScroll.y > 50 && listScroll.directionY === -1) {
 
@@ -85,12 +83,17 @@
                 else if (listScroll.y < 50 && listScroll.y >= 0 && listScroll.directionY === -1) {
                     //
                 }
-
-                $wrapper.addClass('ui-list-pulldown');
+            } else {
+                $wrapper.removeClass('ui-list-pulldown');
             }
 
             //允许上拉加载
             if (allowPullUp) {
+
+                if (listScroll.directionY === 1) {
+                    $wrapper.find('.ui-list-pullup').removeClass('hide');
+                }
+
                 if ((listScroll.y <= (listScroll.maxScrollY - 5)) && listScroll.directionY === 1) {
                     //设置显示上拉样式
                     self.pullDir = 'pullup';
@@ -98,9 +101,11 @@
                 } else if ((listScroll > (listScroll.maxScrollY - 5)) && listScroll.y < listScroll.maxScrollY && listScroll.directionY === 1) {
                     console.log('我在上拉');
                 }
+            }
 
-                $wrapper.find('.ui-list-pullup').removeClass('hide');
-                // $wrapper.addClass('ui-list-pullup');
+            //判断当前是否允许刷新或加载
+            if (isRefresh) {
+                return false;
             }
 
             //当前时间与最后更新时间相差一定间隔以上才能继续更新
@@ -122,6 +127,8 @@
                 listScroll = self.listScroll,
                 pulldownAction = self.pulldownAction,
                 pullupAction = self.pullupAction;
+
+            $wrapper.find('.ui-list-pullup').addClass('hide');
 
             //判断当前是否在加载中
             if (isRefresh) {
@@ -149,7 +156,6 @@
                 $wrapper = $(wrapper);
 
             $wrapper.attr('data-updatetime', (new Date()).getTime());
-            $wrapper.find('.ui-list-pullup').addClass('hide');
             self.isRefresh = false;
         },
         _scrollRefresh: function() {

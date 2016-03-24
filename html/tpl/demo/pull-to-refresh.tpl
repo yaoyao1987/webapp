@@ -1,5 +1,5 @@
 <div class="ui-scroller-wrapper" data-updatetime="">
-	<div class="ui-scroll">
+	<div class="ui-scroller">
 		<ul class="ui-list">
 			<li>1</li>
 			<li>2</li>
