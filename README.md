@@ -36,8 +36,8 @@
 	链接地址比如首页链接：当前项目地址#demo/index
 
 ##	参考
-
+[HTML5单页面架构](http://www.07net01.com/2015/07/872662.html)
 [frozenui](http://frozenui.github.io/frozenui/demo/index.html)
-	
+	HTML5单页面架构参考了(自定义路由 + requirejs + zepto + underscore)的架构，在这个基础上，将zepto改为jquery，引入hammer库
 	这个项目在样式上参考了frozenui库，在这个库的基础上，做了一些自己的改动。
 	比如说表单的右侧按钮，作为可点击的按钮，这个区域必须比实际视觉效果更大，才能使用户点击时有更好的体验。
